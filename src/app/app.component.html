@@ -1,0 +1,102 @@
+<div class="container mx-auto px-4">
+  <div>
+    <div class="flex">
+      <img src="{{ selectedChain.icon }}" alt="" />
+      <h1>{{ selectedChain.name }} {{ selectedNetwork.name }}Faucet</h1>
+    </div>
+    <div>
+      <p>
+        {{ selectedChain.name }} {{ selectedNetwork.name }} Faucet for all of
+        the testnet networks we support.
+      </p>
+    </div>
+  </div>
+
+  <div class="border-solid border-2 rounded border-gray-800 p-4">
+    <div>
+      <h3>Drop in your wallet details</h3>
+      <p>Connect your wallet!</p>
+    </div>
+
+    <button
+      type="button"
+      class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2"
+    >
+      <img src="../assets/icons/metamask-icon.svg" alt="" />
+      Connect with MetaMask
+    </button>
+
+    <div class="divider">
+      <div>or</div>
+    </div>
+
+    <div>
+      <form>
+        <div>
+          <select
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            id="selectedChain"
+            name="selectedChain"
+            [(ngModel)]="selectedChain"
+          >
+            <option value="" disabled>Select your chain...</option>
+            <option *ngFor="let c of chains" [ngValue]="c">
+              {{ c.name }}
+            </option>
+          </select>
+        </div>
+
+        <div>
+          <select
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            id="selectedChain"
+            name="selectedChain"
+            [(ngModel)]="selectedNetwork"
+          >
+            <option value="" disabled>Select your networks...</option>
+            <option *ngFor="let n of selectedChain.networks" [ngValue]="n">
+              {{ n.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-6">
+          <label
+            for="address"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Your address</label
+          >
+          <input
+            type="text"
+            id="address"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="0x"
+            required
+          />
+        </div>
+        <p>disconnet wallet</p>
+
+        <button
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Recieve
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"
+            />
+            <path
+              d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
