@@ -8,18 +8,23 @@ import { initFlowbite } from 'flowbite';
 })
 export class AppComponent {
   title = 'eth-faucet';
-  selectedChain: any = '';
+
   chains: any = [
     {
       name: 'F1rstChain',
-      icon: '',
       networks: [{ name: 'Besu', rpcURL: '' }, { name: 'Geth' }],
     },
-    { name: 'Polygon', icon: '', networks: [{ name: 'Mumbai', rpcURL: '' }] },
+    { name: 'Polygon', networks: [{ name: 'Mumbai', rpcURL: '' }] },
   ];
+
+  selectedChain: any = '';
   selectedNetwork: any = '';
 
   ngOnInit(): void {
     initFlowbite();
+  }
+
+  changeChain(chain: any) {
+    this.selectedNetwork = '';
   }
 }
